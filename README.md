@@ -27,20 +27,19 @@ In addition, this project will include:
 
 
 ## Wireframes:
-(map wireframe)[wireframe.png]
-
-
+![wireframe](wireframe.png)
+* Once a pin has been selected, a column/box will appear on the right side of the inner box to display a template of info as text and an img
+* This box will have an exit button so that the user can go back to viewing the same neighborhood they selected instead of having to return to the fully zoomed out home map
 
 
 ## Libraries and APIs:
 
-* d3 JS library for 
+* d3 JS library 
 * Sfgov.org API
 * html/css
 *  Vanilla Javascript
-* Possibly Canvas API for dividing the city into neighborhoods
+* Possibly Canvas API for adding custom displays
 * Wikipedia for additional info on locations
-
 
 
 ## Implementation Timeline:
