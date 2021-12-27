@@ -1,13 +1,13 @@
-#Art of San Francisco
+# Art of San Francisco
 
-##Background:
+## Background:
 
 Art of San Francisco is a web-based map application that helps the user to explore and learn about the many amazing public art locations that the city has to offer. For this map, I plan to have a map of the city divided into each of its neighborhoods. The map will display the locations of public art pieces and allow the user to select neighborhoods as well as specific locations, which will display information and pictures on the subject.
 
 Once a neighborhood is selected, the map will display a zoomed-in sub map of the selected neighborhood enlarged, with a clickable pin for each public art display. Clicking the pin will display a picture and some information about the art piece. 
 
 
-##Functionality and MVPs:
+## Functionality and MVPs:
 
 
 In Art of San Francisco, users will be able to:
@@ -26,13 +26,13 @@ In addition, this project will include:
 * View data comparing the neighborhoods
 
 
-##Wireframes:
+## Wireframes:
 (map wireframe)[wireframe.png]
 
 
 
 
-##Libraries and APIs:
+## Libraries and APIs:
 
 * d3 JS library for 
 * Sfgov.org API
@@ -43,7 +43,7 @@ In addition, this project will include:
 
 
 
-##Implementation Timeline:
+## Implementation Timeline:
 
 * 12/31 Thursday
   * Figure out what tools from d3 library to use 
@@ -60,7 +60,7 @@ In addition, this project will include:
 
 
 
-##Bonus Features:
+## Bonus Features:
 
 * Could add in some data and statistics to compare the neighborhoods and their art. Such as how old on average the art is, what types of art is most common, which neighborhood has the highest density and concentration.
 
