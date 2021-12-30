@@ -16,5 +16,18 @@
   "bugs": {
     "url": "https://github.com/j-tomasik/JS_data_map/issues"
   },
-  "homepage": "https://github.com/j-tomasik/JS_data_map#readme"
+  "homepage": "https://github.com/j-tomasik/JS_data_map#readme",
+  "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.20.1",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.45.1",
+    "sass-loader": "^12.4.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
