@@ -29,17 +29,26 @@
     <body>
         <h1>Great Start!</h1>
 
+        <div id="container">
+            <div id="map"></div>
+        </div>
+
         <script>
             function initMap() {
-                
+
+                let mapOptions = {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 13
+
+                }
+
+                let map = new google.maps.Map(document.getElementById('map'), mapOptions);
             }
         </script>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=...&callback=initMap"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe3sykJUD8na0TQmavoQfLXPW3qkPNukM&callback=initMap"></script>
 
-        <div id="container">
-            <div id="map">This is where my map will go</div>
-        </div>
+        
 
         
     </body>
