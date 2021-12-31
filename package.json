@@ -1,10 +1,15 @@
 {
-  "name": "JS_data_map",
+  "name": "js_data_map",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,10 @@
     "babel-loader": "^8.2.3",
     "core-js": "^3.20.1",
     "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
     "mini-css-extract-plugin": "^2.4.5",
+    "node-fetch": "^3.1.0",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.45.1",
     "sass-loader": "^12.4.0",
