@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./dist/main.css" />
         <script src="./dist/main.js"></script>
-        <title>Document</title>
+        <title>Custom Map</title>
 
         <style>
             #container {
@@ -14,6 +14,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
             }
             #map {
                 height: 80vh;
@@ -30,24 +31,93 @@
         <h1>Great Start!</h1>
 
         <div id="container">
+            <h1 id="title">Click on a Pin to Read About It's Art!</h1>
             <div id="map"></div>
         </div>
 
         <script>
-            function initMap() {
+            //this script takes the csv file, cleans info and returns a matrix of each location and it's info
+            // getData();
 
-                let mapOptions = {
-                    center: {lat: -34.397, lng: 150.644},
-                    zoom: 13
+            async function getData() {
+            
+                const finalData = [];
 
-                }
+                const response = await fetch("src/data/Map_of_Public_Art__from_1__Art_Program_.csv")
+                const data = await response.text();
+                const table = data.split("\n").slice(1);
+                
 
-                let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                table.forEach(row => {
+                    const locationInfo = row.split(',');
+                    finalData.push(locationInfo);
+                })
+
+                let testData = finalData.slice(0,6)
+                return testData;
             }
+            
         </script>
 
+        <script>
+            //This script initializes the map to the html div
+            async function initMap() {
+
+                    //centers map on sf
+                let mapOptions = {
+                    center: {lat: 37.77493, lng: -122.419415},
+                    zoom: 12
+                }
+                //initializes map and connect it to html
+                let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                //initializes geocoder obj to convert each street address to coords for pin placement
+                let geocoder = new google.maps.Geocoder();
+                //loads the array of location info
+                let tester = await getData();
+
+
+                tester.forEach(location => {
+                    let address = location[0];
+                    let name = location[1];
+                    let type = location.slice(2,4);
+
+
+                    geocoder.geocode({ 'address': address }, function (results, status) {
+                        if (status === 'OK') {
+                            let marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                            var infoWindow = new google.maps.InfoWindow({
+                                content: name
+                            });
+                            marker.addListener('click', function(){
+                                infoWindow.open(map, marker)
+                            })
+                        } else {
+                            alert('Geocode was not successful for the following reason:' + status);
+                        }
+                    });
+                });
+            }
+            
+
+
+
+            //this factory function will be used to create each pin
+            //takes an arg of the coordinates
+            // function addMarker(coords) {
+            //     let marker = new google.maps.Marker({
+            //         position:coords,
+            //         map:map,
+            //         //icon:''
+            //     });
+            // }
+        </script>
+            
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe3sykJUD8na0TQmavoQfLXPW3qkPNukM&callback=initMap"></script>
 
+        
         
 
         
