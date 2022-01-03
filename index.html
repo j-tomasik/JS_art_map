@@ -14,7 +14,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: column;
+                flex-direction: row;
             }
             #map {
                 height: 80vh;
@@ -24,15 +24,53 @@
                 margin: 0;
                 padding: 0;
             }
+            #vertical-list {
+                width: 200px;
+                height: 80vh;
+                overflow-y: auto;
+            }
+            #vertical-list li {
+                background-color: black;
+                color: yellow;
+                display: block;
+                padding: 12px;
+                text-decoration: none;
+            }
+            #vertical-list li:hover {
+                background-color: rebeccapurple;
+            }
+            #vertical-list li.active {
+                background-color: #4caf50;
+                color: white;
+            }
+            #info {
+                border: 2px solid black;
+                height: 80vh;
+                width: 300px;
+            }
         </style>
     </head>
 
     <body>
-        <h1>Great Start!</h1>
+        
 
         <div id="container">
-            <h1 id="title">Click on a Pin to Read About It's Art!</h1>
+            <div id="info">
+                <h1>Location Info</h1>
+                <ul id="info-list">
+                    <li> Title and Creator: <span id = "name"></span></li><br>
+                    <li> Arist Info Website: <a href="#"><span id="artist-link"></span></a></li><br>
+                    <li> Type and Material: <span id="physical"></span></li><br>
+                    <li> Location: <span id="location"></span></li><br>
+                    <li> Access: <span id="access"></span></li>
+
+                </ul>
+                <img>
+            </div>
             <div id="map"></div>
+            <ul id="vertical-list">
+                <li>tester</li>
+            </ul>
         </div>
 
         <script>
@@ -53,13 +91,68 @@
                     finalData.push(locationInfo);
                 })
 
-                let testData = finalData.slice(0,6)
+
+                let testData = finalData.slice(0)
                 return testData;
             }
             
         </script>
 
+        
+        <!-- <script src="index.pack.js">
+            //this script holds the drop pin function, currently set to take in a class instance
+        </script> -->
+
         <script>
+
+            function dropPin(locationClass, map) {
+                    let geocoder = new google.maps.Geocoder();
+                    let createdMap = map;
+                    let address = locationClass.address;
+                    // let position = locationClass.location.geometry.location
+
+                    console.log(address)
+
+                    geocoder.geocode({ 'address': address }, function (results, status) {
+                        if (status === 'OK') {
+                            let marker = new google.maps.Marker({
+                                map: createdMap,
+                                position: results[0].geometry.location,
+                                label: locationClass.name,
+                                icon: 'https://www.google.com/mapfiles/arrow.png'
+                            });
+
+                            let infoWindow = new google.maps.InfoWindow({
+                                content: locationClass.name
+                            });
+                            marker.addListener('click', function () {
+                                infoWindow.open(map, marker);
+                                //add function that loads the location attributes into the #info div
+                                document.getElementById('name').textContent = locationClass.name;
+                                document.getElementById('physical').textContent = locationClass.type
+                            })
+                        } else {
+                            alert('Geocode was not successful for the following reason:' + status);
+                        }
+                    });
+
+                }
+
+
+
+
+
+
+
+
+            function LocationClass (arr) {
+                    this.address = arr[0];
+                    // this.coords = arr[0].geometry.location;
+                    this.name = arr[1];
+                    this.type = arr.slice(2, 4).join(' ');
+                    this.access = arr[4] + arr[5];
+                    this.link = arr.last;
+            }
             //This script initializes the map to the html div
             async function initMap() {
 
@@ -75,29 +168,59 @@
                 //loads the array of location info
                 let tester = await getData();
 
-
+                //iterates through data matrix returned by async 'getData' function, creates an li with each name
+                //need to add event listener and bind class instance to li element
                 tester.forEach(location => {
+                    let newLocation = new LocationClass(location);
+                    
+
                     let address = location[0];
                     let name = location[1];
-                    let type = location.slice(2,4);
+                    let type = location.slice(2,4).join(', ');
+                    let access = location.slice(4, 6).join(', ');
+                    //some locations don't have artist links, need helper function to test arr length and obj for url
+                    let link = location.pop();
 
+                        let node = document.createElement("LI");
+                        let textnode = document.createTextNode(name);
+                        node.appendChild(textnode);
+                        document.getElementById('vertical-list').appendChild(node);
 
-                    geocoder.geocode({ 'address': address }, function (results, status) {
-                        if (status === 'OK') {
-                            let marker = new google.maps.Marker({
-                                map: map,
-                                position: results[0].geometry.location
-                            });
-                            var infoWindow = new google.maps.InfoWindow({
-                                content: name
-                            });
-                            marker.addListener('click', function(){
-                                infoWindow.open(map, marker)
-                            })
-                        } else {
-                            alert('Geocode was not successful for the following reason:' + status);
-                        }
-                    });
+                        node.addEventListener('click', function() {
+                            // console.log(node);
+                            dropPin(newLocation, map);
+                            document.getElementById('name').textContent = newLocation.name;
+                            document.getElementById('physical').textContent = newLocation.type;
+                            document.getElementById('location').textContent = newLocation.address;
+                            document.getElementById('artist-link').textContent = newLocation.link;
+                            document.getElementById('access').textContent = newLocation.access;
+                        })
+                    
+
+                    // geocoder.geocode({ 'address': address }, function (results, status) {
+                    //     if (status === 'OK') {
+                    //         let marker = new google.maps.Marker({
+                    //             map: map,
+                    //             position: results[0].geometry.location,
+                    //             // label: name,
+                    //             icon: 'https://www.google.com/mapfiles/arrow.png'
+                    //         });
+
+                    //         let infoWindow = new google.maps.InfoWindow({
+                    //             content: name
+                    //         });
+                    //         marker.addListener('click', function(){
+                    //             infoWindow.open(map, marker);
+                    //             document.getElementById('name').textContent = name;
+                    //             document.getElementById('physical').textContent = type;
+                    //             document.getElementById('location').textContent = address;
+                    //             document.getElementById('artist-link').textContent = link;
+                    //             document.getElementById('access').textContent = access;
+                    //         })
+                    //     } else {
+                    //         alert('Geocode was not successful for the following reason:' + status);
+                    //     }
+                    // });
                 });
             }
             
