@@ -111,8 +111,6 @@
                     let address = locationClass.address;
                     // let position = locationClass.location.geometry.location
 
-                    console.log(address)
-
                     geocoder.geocode({ 'address': address }, function (results, status) {
                         if (status === 'OK') {
                             let marker = new google.maps.Marker({
@@ -129,7 +127,10 @@
                                 infoWindow.open(map, marker);
                                 //add function that loads the location attributes into the #info div
                                 document.getElementById('name').textContent = locationClass.name;
-                                document.getElementById('physical').textContent = locationClass.type
+                                document.getElementById('physical').textContent = locationClass.type;
+                                document.getElementById('location').textContent = locationClass.address;
+                                document.getElementById('artist-link').textContent = locationClass.link;
+                                document.getElementById('access').textContent = locationClass.access;
                             })
                         } else {
                             alert('Geocode was not successful for the following reason:' + status);
@@ -174,20 +175,20 @@
                     let newLocation = new LocationClass(location);
                     
 
-                    let address = location[0];
-                    let name = location[1];
-                    let type = location.slice(2,4).join(', ');
-                    let access = location.slice(4, 6).join(', ');
-                    //some locations don't have artist links, need helper function to test arr length and obj for url
-                    let link = location.pop();
+                    // let address = location[0];
+                    // let name = location[1];
+                    // let type = location.slice(2,4).join(', ');
+                    // let access = location.slice(4, 6).join(', ');
+                    // //some locations don't have artist links, need helper function to test arr length and obj for url
+                    // let link = location.pop();
 
                         let node = document.createElement("LI");
-                        let textnode = document.createTextNode(name);
+                        let textnode = document.createTextNode(newLocation.name);
                         node.appendChild(textnode);
                         document.getElementById('vertical-list').appendChild(node);
 
                         node.addEventListener('click', function() {
-                            // console.log(node);
+                            
                             dropPin(newLocation, map);
                             document.getElementById('name').textContent = newLocation.name;
                             document.getElementById('physical').textContent = newLocation.type;

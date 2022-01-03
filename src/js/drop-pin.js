@@ -1,12 +1,14 @@
-function dropPin(locationClass) {
+function dropPin(locationClass, map) {
     let geocoder = new google.maps.Geocoder();
-    let map = document.getElementById('map')
+    let createdMap = map;
+    let address = locationClass.address;
+    // let position = locationClass.location.geometry.location
 
-    geocoder.geocode({ 'address': locationClass.address }, function (results, status) {
+    geocoder.geocode({ 'address': address }, function (results, status) {
         if (status === 'OK') {
             let marker = new google.maps.Marker({
-                map: map,
-                position: locationClass.location,
+                map: createdMap,
+                position: results[0].geometry.location,
                 label: locationClass.name,
                 icon: 'https://www.google.com/mapfiles/arrow.png'
             });
@@ -19,6 +21,9 @@ function dropPin(locationClass) {
                 //add function that loads the location attributes into the #info div
                 document.getElementById('name').textContent = locationClass.name;
                 document.getElementById('physical').textContent = locationClass.type
+                document.getElementById('location').textContent = locationClass.address;
+                document.getElementById('artist-link').textContent = locationClass.link;
+                document.getElementById('access').textContent = locationClass.access;
             })
         } else {
             alert('Geocode was not successful for the following reason:' + status);
