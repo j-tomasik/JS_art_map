@@ -18,7 +18,8 @@ function dropPin(locationClass, map) {
             });
             marker.addListener('click', function () {
                 infoWindow.open(map, marker);
-                //add function that loads the location attributes into the #info div
+                //add function that loads the location attributes into the #info div;
+                //populateInfoBox(locationClass);
                 document.getElementById('name').textContent = locationClass.name;
                 document.getElementById('physical').textContent = locationClass.type
                 document.getElementById('location').textContent = locationClass.address;

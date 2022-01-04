@@ -10,67 +10,144 @@
 
         <style>
             #container {
-                height: 100vh;
+                height: 80vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
             }
+            #main-header {
+                display: flex;
+                justify-content: center;
+            }
             #map {
                 height: 80vh;
                 width: 80vh;
             }
-            html, body {
+            html, body, ul{
                 margin: 0;
                 padding: 0;
+                color: rgb(43,43,43);
+                font-family: sans-serif;
             }
-            #vertical-list {
-                width: 200px;
+            #right-third {
+                width: 300px;
                 height: 80vh;
                 overflow-y: auto;
+                /* border: 2px solid black; */
+                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
             }
             #vertical-list li {
-                background-color: black;
-                color: yellow;
+                
+                color: rgb(43,43,43);
                 display: block;
                 padding: 12px;
                 text-decoration: none;
+                /* border: 1px solid black; */
+                box-shadow: 0 1px 3px 0 hsla(0, 0%, 0%, 0.1);
+                cursor:pointer;
             }
             #vertical-list li:hover {
-                background-color: rebeccapurple;
+                background-color: rgb(81, 138, 177);
+                color: white;
             }
-            #vertical-list li.active {
-                background-color: #4caf50;
+            
+            #vertical-list li.active{
+                background-color: rgb(81, 138, 177);
                 color: white;
             }
             #info {
-                border: 2px solid black;
+                /* border: 2px solid black; */
+                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
                 height: 80vh;
                 width: 300px;
+                padding-left: 20px;
+                padding-right: 10px;
+                color: rgb(43,43,43);
             }
+            #info-list {
+                list-style: none;
+                color: rgb(43,43,43);
+                font-weight: 700;
+            }
+            #info-list span {
+                font-weight: 200;
+            }
+            .list-instructions {
+                padding: 10px;
+            }
+            #map {
+                /* border: 2px solid black; */
+                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+            }
+            #nav-bar {
+                justify-content: space-evenly;
+                background-color: #a9a9a9;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+            }
+            #nav-bar ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+            }
+            #nav-bar li {
+                display: inline;
+                font-size: 20px;
+                text-align: center;
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+            #nav-bar li a {
+                text-decoration: none;
+                color: black;
+            }
+            #nav-bar li:hover {
+                background-color: #838383;
+            }
+            .bold {
+                font-weight: 700;
+                color: rgb(43,43,43);
+            }
+            
         </style>
     </head>
 
     <body>
-        
+        <h2 id='main-header'>San Francisco Public Art Map</h2><br>
+
+        <ul id="nav-bar">
+            <li>Icon for map info<a href="#"></a></li>
+            <li>GitHub<a href="#"></a></li>
+            <li>LinkedIn<a href="#"></a></li>
+        </ul>
 
         <div id="container">
             <div id="info">
                 <h1>Location Info</h1>
                 <ul id="info-list">
                     <li> Title and Creator: <span id = "name"></span></li><br>
-                    <li> Arist Info Website: <a href="#"><span id="artist-link"></span></a></li><br>
+                    <li> Arist's Website: <a id="artist-link" href='#' target="_blank">Click Link Here</a></li><br>
                     <li> Type and Material: <span id="physical"></span></li><br>
-                    <li> Location: <span id="location"></span></li><br>
-                    <li> Access: <span id="access"></span></li>
+                    <li> Address: <span id="location"></span></li><br>
+                    <li> Accessibility: <span id="access"></span></li>
 
                 </ul>
                 <img>
             </div>
             <div id="map"></div>
-            <ul id="vertical-list">
-                <li>tester</li>
-            </ul>
+
+            <div id="right-third">
+                <p class="list-instructions"> <span class="bold">Instructions:</span> Click on the name of a location below to drop a pin on the map and display it's info!</p>
+                <p class="list-instructions">Scroll down to view more locations, click on as many pins as you want. Click a pin to display that location's info!</p>
+                <ul id="vertical-list">
+                </ul>
+            </div>
+            
         </div>
 
         <script>
@@ -116,12 +193,13 @@
                             let marker = new google.maps.Marker({
                                 map: createdMap,
                                 position: results[0].geometry.location,
-                                label: locationClass.name,
+                                title: locationClass.name,
                                 icon: 'https://www.google.com/mapfiles/arrow.png'
                             });
 
                             let infoWindow = new google.maps.InfoWindow({
-                                content: locationClass.name
+                                
+                                content: `<h3> ${locationClass.name}</h3>`
                             });
                             marker.addListener('click', function () {
                                 infoWindow.open(map, marker);
@@ -147,12 +225,24 @@
 
 
             function LocationClass (arr) {
+                function capitalizeFirstLetter(string) {
+                    return string.charAt(0).toUpperCase() + string.slice(1);
+                }
+
                     this.address = arr[0];
                     // this.coords = arr[0].geometry.location;
-                    this.name = arr[1];
-                    this.type = arr.slice(2, 4).join(' ');
-                    this.access = arr[4] + arr[5];
-                    this.link = arr.last;
+                    let rawName = arr[1].split('');
+                    let cleanName = rawName.filter(char => char !== '"').join('');
+                    this.name = cleanName;
+
+                    let rawType = capitalizeFirstLetter(arr[2]) + '. ' + capitalizeFirstLetter(arr[3]) + '.';
+                    let cleanType = rawType.split('').filter(char => char !== '"').join('');
+                    this.type = cleanType;
+
+                    let rawAccess = capitalizeFirstLetter(arr[4]) + '. ' + capitalizeFirstLetter(arr[5]) + '.';
+                    let cleanAccess = rawAccess.split('').filter(char => char !== '"').join('');
+                    this.access = cleanAccess;
+                    this.link = arr[arr.length - 1];
             }
             //This script initializes the map to the html div
             async function initMap() {
@@ -183,17 +273,24 @@
                     // let link = location.pop();
 
                         let node = document.createElement("LI");
+
                         let textnode = document.createTextNode(newLocation.name);
                         node.appendChild(textnode);
+                        //inspect the webpage to see what the LI and A structure is
+                        
                         document.getElementById('vertical-list').appendChild(node);
 
                         node.addEventListener('click', function() {
-                            
+                            let clickedLis = document.querySelectorAll(".active");
+                            clickedLis.forEach(li => {
+                                li.classList.remove("active");
+                            })
                             dropPin(newLocation, map);
+                            node.classList.add("active");
                             document.getElementById('name').textContent = newLocation.name;
                             document.getElementById('physical').textContent = newLocation.type;
                             document.getElementById('location').textContent = newLocation.address;
-                            document.getElementById('artist-link').textContent = newLocation.link;
+                            document.getElementById('artist-link').setAttribute('href', newLocation.link);
                             document.getElementById('access').textContent = newLocation.access;
                         })
                     
