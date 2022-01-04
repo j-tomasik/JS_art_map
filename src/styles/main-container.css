@@ -1,0 +1,22 @@
+#container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+#main-header {
+    display: flex;
+    justify-content: center;
+}
+#map {
+    height: 80vh;
+    width: 80vh;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+html, body, ul{
+    margin: 0;
+    padding: 0;
+    color: rgb(43,43,43);
+    font-family: sans-serif;
+}

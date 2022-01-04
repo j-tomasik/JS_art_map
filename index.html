@@ -8,123 +8,30 @@
         <script src="./dist/main.js"></script>
         <title>Custom Map</title>
 
-        <style>
-            #container {
-                height: 80vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-            }
-            #main-header {
-                display: flex;
-                justify-content: center;
-            }
-            #map {
-                height: 80vh;
-                width: 80vh;
-            }
-            html, body, ul{
-                margin: 0;
-                padding: 0;
-                color: rgb(43,43,43);
-                font-family: sans-serif;
-            }
-            #right-third {
-                width: 300px;
-                height: 80vh;
-                overflow-y: auto;
-                /* border: 2px solid black; */
-                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-            }
-            #vertical-list li {
-                
-                color: rgb(43,43,43);
-                display: block;
-                padding: 12px;
-                text-decoration: none;
-                /* border: 1px solid black; */
-                box-shadow: 0 1px 3px 0 hsla(0, 0%, 0%, 0.1);
-                cursor:pointer;
-            }
-            #vertical-list li:hover {
-                background-color: rgb(81, 138, 177);
-                color: white;
-            }
-            
-            #vertical-list li.active{
-                background-color: rgb(81, 138, 177);
-                color: white;
-            }
-            #info {
-                /* border: 2px solid black; */
-                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-                height: 80vh;
-                width: 300px;
-                padding-left: 20px;
-                padding-right: 10px;
-                color: rgb(43,43,43);
-            }
-            #info-list {
-                list-style: none;
-                color: rgb(43,43,43);
-                font-weight: 700;
-            }
-            #info-list span {
-                font-weight: 200;
-            }
-            .list-instructions {
-                padding: 10px;
-            }
-            #map {
-                /* border: 2px solid black; */
-                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-            }
-            #nav-bar {
-                justify-content: space-evenly;
-                background-color: #a9a9a9;
-                padding: 10px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-            }
-            #nav-bar ul {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-            }
-            #nav-bar li {
-                display: inline;
-                font-size: 20px;
-                text-align: center;
-                padding-right: 20px;
-                padding-left: 20px;
-            }
-            #nav-bar li a {
-                text-decoration: none;
-                color: black;
-            }
-            #nav-bar li:hover {
-                background-color: #838383;
-            }
-            .bold {
-                font-weight: 700;
-                color: rgb(43,43,43);
-            }
-            
-        </style>
+    
     </head>
 
     <body>
         <h2 id='main-header'>San Francisco Public Art Map</h2><br>
 
         <ul id="nav-bar">
-            <li>Icon for map info<a href="#"></a></li>
-            <li>GitHub<a href="#"></a></li>
-            <li>LinkedIn<a href="#"></a></li>
+            <li><button id="myBtn">Click here to learn about the art project!</button></li>
+            <li><a href="https://github.com/j-tomasik" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/jack-tomasik-530ab816b/" target="_blank">LinkedIn</a></li>
         </ul>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p> San Francisco has a 1% Art Program that requires all projects involving new building, or the addition of 25,000 square
+                feet or more in the Downtown and nearby neighborhoods, provide public art equal to at least 1% of the total construction
+                cost. This program was established by the 1985 Downtown Plan and is governed by Section 429 of the Planning Code. Since
+                May 2012, some projects may choose to dedicate a portion of their 1% Art requirement to the City's Public Art Trust.
+                Learn more at <a href="http://sf-planning.org/privately-owned-public-open-space-and-public-art-popos">http://sf-planning.org/privately-owned-public-open-space-and-public-art-popos</a></p>
+            </div>
+
+        </div>
 
         <div id="container">
             <div id="info">
@@ -151,6 +58,35 @@
         </div>
 
         <script>
+            //modal JS logic from W3 schools
+            // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on the button, open the modal
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+
+
             //this script takes the csv file, cleans info and returns a matrix of each location and it's info
             // getData();
 

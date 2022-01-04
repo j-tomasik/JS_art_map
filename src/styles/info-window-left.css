@@ -1,0 +1,24 @@
+#info {
+                /* border: 2px solid black; */
+                box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+                height: 80vh;
+                width: 300px;
+                padding-left: 20px;
+                padding-right: 10px;
+                color: rgb(43,43,43);
+            }
+            #info-list {
+                list-style: none;
+                color: rgb(43,43,43);
+                font-weight: 700;
+            }
+            #info-list span {
+                font-weight: 200;
+            }
+            .list-instructions {
+                padding: 10px;
+            }
+            .bold {
+                font-weight: 700;
+                color: rgb(43,43,43);
+            }
