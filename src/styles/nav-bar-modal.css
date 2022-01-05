@@ -1,6 +1,6 @@
 #nav-bar {
                 justify-content: space-evenly;
-                background-color: #a9a9a9;
+                background-color: rgb(81, 138, 177);
                 padding: 10px;
                 display: flex;
                 justify-content: center;
@@ -19,13 +19,22 @@
                 text-align: center;
                 padding-right: 20px;
                 padding-left: 20px;
+                color: white;
             }
             #nav-bar li a {
                 text-decoration: none;
-                color: black;
+                color: white;
             }
             #nav-bar li:hover {
-                background-color: #838383;
+                text-decoration: underline;
+
+            }
+            #nav-bar li > button:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+            #nav-bar li > button {
+                color:white;
             }
             
             .modal {
@@ -45,7 +54,11 @@
                 margin: 15% auto; /* 15% from the top and centered */
                 padding: 20px;
                 border: 1px solid #888;
-                width: 80%; /* Could be more or less, depending on screen size */
+                width: 30%; /* Could be more or less, depending on screen size */
+            }
+            #modal-text {
+                color: rgb(43,43,43);
+                line-height: 1.6;
             }
             .close {
                 color: #aaa;

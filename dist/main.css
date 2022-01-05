@@ -1,3 +1,6 @@
+/*!****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/reset.css ***!
+  \****************************************************************************************************/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -41,6 +44,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*!*************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/main-container.css ***!
+  \*************************************************************************************************************/
 #container {
     height: 80vh;
     display: flex;
@@ -48,10 +54,7 @@ table {
     align-items: center;
     flex-direction: row;
 }
-#main-header {
-    display: flex;
-    justify-content: center;
-}
+
 #map {
     height: 80vh;
     width: 80vh;
@@ -63,6 +66,15 @@ html, body, ul{
     color: rgb(43,43,43);
     font-family: sans-serif;
 }
+#main-header {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/list-right.css ***!
+  \*********************************************************************************************************/
 #right-third {
                 width: 300px;
                 height: 80vh;
@@ -89,6 +101,12 @@ html, body, ul{
                 background-color: rgb(81, 138, 177);
                 color: white;
             }
+            .list-instructions {
+                padding: 15px;
+            }
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/info-window-left.css ***!
+  \***************************************************************************************************************/
 #info {
                 /* border: 2px solid black; */
                 box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
@@ -102,6 +120,14 @@ html, body, ul{
                 list-style: none;
                 color: rgb(43,43,43);
                 font-weight: 700;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                line-height: 1.2;
+            }
+            #myBtn {
+                background: transparent;
+                border: none;
+                font-size: 20px;
             }
             #info-list span {
                 font-weight: 200;
@@ -112,10 +138,29 @@ html, body, ul{
             .bold {
                 font-weight: 700;
                 color: rgb(43,43,43);
+
             }
+            #info h1 {
+                font-size: 24px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+            ul a {
+                color: rgb(81, 138, 177);
+            }
+            img {
+                height: 30%;
+                width: 80%;
+                object-fit:cover
+            }
+            
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/nav-bar-modal.css ***!
+  \************************************************************************************************************/
 #nav-bar {
                 justify-content: space-evenly;
-                background-color: #a9a9a9;
+                background-color: rgb(81, 138, 177);
                 padding: 10px;
                 display: flex;
                 justify-content: center;
@@ -134,13 +179,22 @@ html, body, ul{
                 text-align: center;
                 padding-right: 20px;
                 padding-left: 20px;
+                color: white;
             }
             #nav-bar li a {
                 text-decoration: none;
-                color: black;
+                color: white;
             }
             #nav-bar li:hover {
-                background-color: #838383;
+                text-decoration: underline;
+
+            }
+            #nav-bar li > button:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+            #nav-bar li > button {
+                color:white;
             }
             
             .modal {
@@ -160,7 +214,11 @@ html, body, ul{
                 margin: 15% auto; /* 15% from the top and centered */
                 padding: 20px;
                 border: 1px solid #888;
-                width: 80%; /* Could be more or less, depending on screen size */
+                width: 30%; /* Could be more or less, depending on screen size */
+            }
+            #modal-text {
+                color: rgb(43,43,43);
+                line-height: 1.6;
             }
             .close {
                 color: #aaa;
@@ -174,6 +232,7 @@ html, body, ul{
                 text-decoration: none;
                 cursor: pointer;
             }
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
 
-
-/*# sourceMappingURL=main.css.map*/

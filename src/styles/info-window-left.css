@@ -11,6 +11,14 @@
                 list-style: none;
                 color: rgb(43,43,43);
                 font-weight: 700;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                line-height: 1.2;
+            }
+            #myBtn {
+                background: transparent;
+                border: none;
+                font-size: 20px;
             }
             #info-list span {
                 font-weight: 200;
@@ -21,4 +29,20 @@
             .bold {
                 font-weight: 700;
                 color: rgb(43,43,43);
+
             }
+            #info h1 {
+                font-size: 24px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+            ul a {
+                color: rgb(81, 138, 177);
+            }
+            img {
+                height: 30%;
+                width: 80%;
+                object-fit:cover
+            }
+            
