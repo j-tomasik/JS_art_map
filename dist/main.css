@@ -71,6 +71,7 @@ html, body, ul{
     justify-content: center;
     font-size: 24px;
     font-weight: 700;
+    padding-top: 10px;
 }
 /*!*********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/list-right.css ***!
@@ -122,7 +123,7 @@ html, body, ul{
                 font-weight: 700;
                 margin-bottom: 20px;
                 margin-top: 20px;
-                line-height: 1.2;
+                line-height: 1;
             }
             #myBtn {
                 background: transparent;
@@ -149,8 +150,8 @@ html, body, ul{
             ul a {
                 color: rgb(81, 138, 177);
             }
-            img {
-                height: 30%;
+            #locationImg {
+                max-height: 40%;
                 width: 80%;
                 object-fit:cover
             }

@@ -13,7 +13,7 @@
                 font-weight: 700;
                 margin-bottom: 20px;
                 margin-top: 20px;
-                line-height: 1.2;
+                line-height: 1;
             }
             #myBtn {
                 background: transparent;
@@ -40,8 +40,8 @@
             ul a {
                 color: rgb(81, 138, 177);
             }
-            img {
-                height: 30%;
+            #locationImg {
+                max-height: 40%;
                 width: 80%;
                 object-fit:cover
             }

@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./dist/main.css" />
         <script src="./dist/main.js"></script>
-        <title>Custom Map</title>
+        <title>SF Art Map</title>
+        <link rel="icon" type ="image/x-icon" href="images/sf-logo.jpg">
 
     
     </head>
@@ -46,13 +47,14 @@
                 <h1>Location Info</h1>
                 <ul id="info-list">
                     <li> Title and Creator: <span id = "name"></span></li><br>
-                    <li> Artist's Website: <a id="artist-link" href='#' target="_blank">Click Link Here</a></li><br>
+                    <li> Artist's Website: <a id="artist-link" href='#' target="_blank"></a></li><br>
                     <li> Type and Material: <span id="physical"></span></li><br>
                     <li> Address: <span id="location"></span></li><br>
                     <li> Accessibility: <span id="access"></span></li><br>
+                    <li>Image:</li>
                 </ul>
 
-                <img id="locationImg" src="#">
+                <img id="locationImg" src="https://i.icanvas.com/IDS27?d=3&sh=v&s=s&p=1&bg=w&t=1623607620">
 
                 
             </div>
@@ -156,13 +158,24 @@
                                 document.getElementById('physical').textContent = locationClass.type;
                                 document.getElementById('location').textContent = locationClass.address;
                                 document.getElementById('artist-link').setAttribute('href', locationClass.link);
+                                document.getElementById('artist-link').textContent = 'Click Here!';
                                 document.getElementById('access').textContent = locationClass.access;
                                 //use below for img dynamic with class attribute for url, also add to other event listener
                                 document.getElementById('locationImg').setAttribute('src', locationClass.imgUrl);
-                                
+                                let clickedList = document.querySelectorAll(".active");
+                                clickedList.forEach(li => {
+                                    li.classList.remove("active");
+                                })
                                 
                                 
                             })
+                            marker.addListener('mouseover', function () {
+                                infoWindow.open(map, marker);
+
+                            })
+                            marker.addListener('mouseout', function() {
+                                infoWindow.close();
+                            } )
                         } else {
                             alert('Geocode was not successful for the following reason:' + status);
                         }
@@ -247,6 +260,7 @@
                             document.getElementById('physical').textContent = newLocation.type;
                             document.getElementById('location').textContent = newLocation.address;
                             document.getElementById('artist-link').setAttribute('href', newLocation.link);
+                            document.getElementById('artist-link').textContent = 'Click Here!';
                             document.getElementById('access').textContent = newLocation.access;
                             document.getElementById('locationImg').setAttribute('src', newLocation.imgUrl);
                         })
