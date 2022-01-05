@@ -72,3 +72,6 @@
                 text-decoration: none;
                 cursor: pointer;
             }
+            a {
+                color: rgb(81, 138, 177);
+            }
