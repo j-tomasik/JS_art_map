@@ -30,9 +30,10 @@ In addition, this project will include:
 
 
 ## Wireframes:
+* This wireframe is out of date as my project has been dynamically updated
 ![wireframe](wireframe.png)
 * Once a pin has been selected, a column/box will appear on the left side of the inner box to display a template of info as text and an img
-* This wireframe is out of date as my project has been dynamically updated
+
 
 
 ## Libraries and APIs:
@@ -41,6 +42,7 @@ In addition, this project will include:
 * html/css
 *  Vanilla Javascript
 * Google maps API
+* Google Geocoding API
 * external links to learn more about locations and projects
 
 
