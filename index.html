@@ -19,6 +19,7 @@
             <li><button id="myBtn">Learn More</button></li>
             <li><a href="https://github.com/j-tomasik" target="_blank">GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/jack-tomasik-530ab816b/" target="_blank">LinkedIn</a></li>
+            <li id="clear-pins">Click to Clear All Pins</li>
         </ul>
 
         <div id="myModal" class="modal">
@@ -131,6 +132,22 @@
         // </script> -->
 
         <script>
+            const MarkersArray = [];
+
+            // function clearOverlays() {
+            //     for (let i = 0; i < MarkersArray.length; i++) {
+            //         MarkersArray[i].setMap(null);
+            //     }
+            //     MarkersArray.length = 0;
+            // }
+
+            let resetBtn = document.getElementById("clear-pins");
+            resetBtn.addEventListener('click', function(){
+                for (let i = 0; i < MarkersArray.length; i++) {
+                    MarkersArray[i].setMap(null);
+                }
+                MarkersArray.length = 0;
+            });
 
             function dropPin(locationClass, map) {
                     let geocoder = new google.maps.Geocoder();
@@ -146,6 +163,8 @@
                                 // label: 'click me!',
                                 icon: 'https://www.google.com/mapfiles/arrow.png'
                             });
+                            MarkersArray.push(marker);
+                            
 
                             let infoWindow = new google.maps.InfoWindow({
                                 
@@ -176,6 +195,7 @@
                             marker.addListener('mouseout', function() {
                                 infoWindow.close();
                             } )
+                            
                         } else {
                             alert('Geocode was not successful for the following reason:' + status);
                         }
