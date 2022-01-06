@@ -41,7 +41,7 @@ In addition, this project will include:
 
 
 ## Wireframes:
-* This wireframe is out of date as my project has been dynamically updated
+
 ![wireframe](wireframe.png)
 * Once a pin or art piece name has been selected, the box on the left side of the map will display  info about the art piece and an img
 
