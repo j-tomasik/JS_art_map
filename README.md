@@ -51,16 +51,16 @@ In addition, this project will include:
 
 * Sfgov.org API/csv import
 * html/css
-*  Vanilla Javascript
+* Vanilla Javascript
 * Google maps API
 * Google Geocoding API
-* external links to learn more about locations and projects
+* External links to learn more about locations and projects
 
 
 ## Implementation Timeline:
 
 * 12/31 Thursday
-  * Figure out what tools from d3 library to use 
+  * Figure out what tools and which API library to use 
   * Get access to city API and familiarize with accessing 
 * 1/3 Monday
   * Draw/import map of neighborhoods
