@@ -82,3 +82,5 @@ In addition, this project will include:
 
 * I could also add filters for catagories.
 
+* Also I want to add in a feature so that when an image is clicked on, a modal with a bigger version of the picture appears.
+
