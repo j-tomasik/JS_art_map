@@ -25,6 +25,8 @@ In addition, this project will include:
 
 * Click a 'Learn more' button to pull up a modal that has background info on the art porject and links
 * View an image of the art piece when it has been selected to display it's information
+* Can also click on the clear all pins button to remove pins
+
 
 
 ## Wireframes:
@@ -63,4 +65,4 @@ In addition, this project will include:
 
 * Could add in some data and statistics to compare the neighborhoods and their art. Such as how old on average the art is, what types of art is most common, which neighborhood has the highest density and concentration.
 
-* I could also add a reset button to clear out the pins instead of the user needing to refresh the page for that to happen.
+* I could also add filters for catagories
