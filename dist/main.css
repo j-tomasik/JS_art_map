@@ -1,6 +1,3 @@
-/*!****************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/reset.css ***!
-  \****************************************************************************************************/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -44,9 +41,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/*!*************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/main-container.css ***!
-  \*************************************************************************************************************/
 #container {
     height: 80vh;
     display: flex;
@@ -73,9 +67,6 @@ html, body, ul{
     font-weight: 700;
     padding-top: 10px;
 }
-/*!*********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/list-right.css ***!
-  \*********************************************************************************************************/
 #right-third {
                 width: 300px;
                 height: 80vh;
@@ -105,9 +96,6 @@ html, body, ul{
             .list-instructions {
                 padding: 15px;
             }
-/*!***************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/info-window-left.css ***!
-  \***************************************************************************************************************/
 #info {
                 /* border: 2px solid black; */
                 box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
@@ -156,9 +144,6 @@ html, body, ul{
                 object-fit:cover
             }
             
-/*!************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/nav-bar-modal.css ***!
-  \************************************************************************************************************/
 #nav-bar {
                 justify-content: space-evenly;
                 background-color: rgb(81, 138, 177);
@@ -236,7 +221,6 @@ html, body, ul{
             a {
                 color: rgb(81, 138, 177);
             }
-/*!*************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
-  \*************************************************************************************************************************************/
 
+
+/*# sourceMappingURL=main.css.map*/

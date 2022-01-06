@@ -2,9 +2,11 @@
 
 ## Background:
 
-Art of San Francisco is a web-based map application that helps the user to explore and learn about the many amazing public art locations that the city has to offer. For this map, I plan to have a map of the city divided into each of its neighborhoods. The map will display the locations of public art pieces and allow the user to select neighborhoods as well as specific locations, which will display information and pictures on the subject.
+Art of San Francisco is a web-based map application that helps the user to explore and learn about the many amazing public art locations that the city has to offer. For this map, I plan on displaying a list of all the art locations involved in the city's "1% Art Program". More information about this program can be found in the Modal that appears when you click the "Learn More" button that also includes links to the project's website. 
 
-Once a neighborhood is selected, the map will display a zoomed-in sub map of the selected neighborhood enlarged, with a clickable pin for each public art display. Clicking the pin will display a picture and some information about the art piece. 
+The map will display the location of a public art piece as a pin on the map when they click on the art piece's name from the list on the right. Clicking this will also display information and a picture of the piece and can also be displayed by clicking on the pin.
+
+
 
 
 ## Functionality and MVPs:
@@ -13,33 +15,31 @@ Once a neighborhood is selected, the map will display a zoomed-in sub map of the
 In Art of San Francisco, users will be able to:
 
 1)Zoom in and zoom out 
-2)Reset and recenter their map
-3)Click on neighborhoods
-4)Click on pins representing art locations
-5)Exit out of the view display for a art location and/or neighborhood
+2)Use google maps street view
+3)Click on list items to drop pins and display info
+4)Click on pins to switch between which location's info you want to display
+5)Mouse over a pin to display the name and address
 6)Click on external links to learn more about a location
 
 In addition, this project will include:
 
-* A page of all the links and sources of the data
-* Change the color of certain display aspects
-* View data comparing the neighborhoods
+* Click a 'Learn more' button to pull up a modal that has background info on the art porject and links
+* View an image of the art piece when it has been selected to display it's information
 
 
 ## Wireframes:
 ![wireframe](wireframe.png)
-* Once a pin has been selected, a column/box will appear on the right side of the inner box to display a template of info as text and an img
-* This box will have an exit button so that the user can go back to viewing the same neighborhood they selected instead of having to return to the fully zoomed out home map
+* Once a pin has been selected, a column/box will appear on the left side of the inner box to display a template of info as text and an img
+* This wireframe is out of date as my project has been dynamically updated
 
 
 ## Libraries and APIs:
 
-* d3 JS library 
-* Sfgov.org API
+* Sfgov.org API/csv import
 * html/css
 *  Vanilla Javascript
-* Possibly Canvas API for adding custom displays
-* Wikipedia for additional info on locations
+* Google maps API
+* external links to learn more about locations and projects
 
 
 ## Implementation Timeline:
@@ -63,4 +63,4 @@ In addition, this project will include:
 
 * Could add in some data and statistics to compare the neighborhoods and their art. Such as how old on average the art is, what types of art is most common, which neighborhood has the highest density and concentration.
 
-* I could also add links to websites about the artists, show more pictures of each picture and add more personalized text and info for each location.
+* I could also add a reset button to clear out the pins instead of the user needing to refresh the page for that to happen.
