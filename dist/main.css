@@ -197,6 +197,9 @@ html, body, ul{
             #nav-bar li > button {
                 color:white;
             }
+            #clear-pins:hover {
+                cursor: pointer;
+            }
             
             .modal {
                 display: none; /* Hidden by default */
