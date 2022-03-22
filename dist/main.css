@@ -200,6 +200,9 @@ html, body, ul{
             #clear-pins:hover {
                 cursor: pointer;
             }
+            #clear-pins {
+                color: red;
+            }
             
             .modal {
                 display: none; /* Hidden by default */
